@@ -531,6 +531,9 @@ Checkout
 }
 .checkout-wrapper button{
     margin: 1rem 3rem;
+    border-radius: 4px;
+    border: none;
+    outline: none;
     width: 90vw;
     align-self: center;
     padding: 1rem;

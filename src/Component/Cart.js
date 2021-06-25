@@ -82,7 +82,9 @@ class Cart extends Component {
     return (
       <div className="cart-wrapper">
         <section className="cart-header">
-          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+          <Link to="/">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+          </Link>
           <p>carts</p>
         </section>
         <section className="items-wrapper">{this.showItem()}</section>
