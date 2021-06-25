@@ -70,6 +70,7 @@ class Cart extends Component {
     }
     item.map((item) => {
       total += parseInt(item.price.replace(",", ""));
+      return total
     });
     const formatter = new Intl.NumberFormat("en-US", {
       style: "currency",
