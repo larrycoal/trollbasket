@@ -1,35 +1,57 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import {Link} from 'react-router-dom'
 class Home extends Component {
   state = {
     products: [],
     cart: [],
-    filter: "All",
+    location: "All",
+    search:""
   };
   componentDidMount() {
     const { products } = this.props;
     this.setState({
+      ...this.state,
       products,
     });
   }
 
   showProducts() {
-    const { filter } = this.state;
+    const { location,search } = this.state;
     let filteredProduct = this.state.products;
-   if(filter === "All"){
-    return filteredProduct ? filteredProduct.map((product,i)=>(
-        <div key={i}>
-            <img src={product.image} alt=""/>
-            <p>{product.description}</p>
-            <p>{product.price}</p>
-        </div>
-    )) : null
-   }else{
-
+   if(location !== "All"){
+    filteredProduct = this.state.products.filter((product)=>{
+        return product.location === location
+    })
+   }else if(search !==""){
+    filteredProduct = filteredProduct.filter((product)=>{
+        return product.name.match(search)
+    })
    }
+   return filteredProduct ? filteredProduct.map((product,i)=>(
+    <div key={i}>
+        <Link to={"/product/"+product.id}>
+        <img src={product.image} alt=""/>
+        </Link>
+        <p>{product.description}</p>
+        <p>{product.price}</p>
+        <p>{product.name}</p>
+    </div>
+)) : null
+}
 
-  
-  }
+handleLocationChange (e){
+    this.setState({
+        ...this.state,
+        location:e.target.value
+    })
+}
+handleSearchChange(e){
+    this.setState({
+        ...this.state,
+        search:e.target.value.toUpperCase()
+    })
+}
   render() {
     return (
       <div className="home-wrapper">
@@ -37,23 +59,24 @@ class Home extends Component {
           <h1>Trollbasket</h1>
           <div className="filter">
             <span>
-              <i class="fa fa-location-arrow" aria-hidden="true"></i>
-              <select name="location">
-                <option value="lagos">Lagos</option>
-                <option value="abuja">Abuja</option>
-                <option value="kaduna">Kaduna</option>
+            <i class="fas fa-map-marker-alt"></i>
+              <select name="location" onChange={(e)=>this.handleLocationChange(e)}>
+              <option value="All">All</option>
+                <option value="Lagos">Lagos</option>
+                <option value="Abuja">Abuja</option>
+                <option value="Kaduna">Kaduna</option>
                 <option value="Rivers">Rivers</option>
               </select>
             </span>
             <span>
-            <img
-                src="https://img.icons8.com/pastel-glyph/64/000000/card-wallet--v1.png"
-                alt="walet"
-              />
+            <i class="fas fa-wallet"></i>
               <p>My Orders</p>
             </span>
             <span>
-              <i class="fa fa-cart-plus" aria-hidden="true"></i>
+             <span className="cart-counter">
+             <i class="fa fa-cart-plus" aria-hidden="true"></i>
+             <p>{this.state.cart.length}</p>
+             </span>
               <p>Cart</p>
             </span>
           </div>
@@ -62,6 +85,7 @@ class Home extends Component {
               type="text"
               name="search"
               placeholder=" search merchandise"
+              onChange={(e)=>this.handleSearchChange(e)}
             />
             <i class="fa fa-search" aria-hidden="true"></i>
           </div>
@@ -84,19 +108,13 @@ class Home extends Component {
           <div className="featured">
             <div>
               <span>
-                <img
-                  src="https://img.icons8.com/android/24/000000/note.png"
-                  alt=""
-                />
+                <i class="fa fa-sticky-note" aria-hidden="true"></i>
               </span>
               <span>Product Categories</span>
             </div>
             <div>
               <span>
-                <img
-                  src="https://img.icons8.com/officel/16/000000/fire-element.png"
-                  alt=""
-                />
+              <i class="fas fa-fire-alt"></i>
               </span>
               <span>Popular Products</span>
             </div>
@@ -108,10 +126,7 @@ class Home extends Component {
             </div>
             <div>
               <span>
-                <img
-                  src="https://img.icons8.com/carbon-copy/100/000000/shop.png"
-                  alt=""
-                />
+              <i class="fas fa-store    "></i>
               </span>
               <span>Shops</span>
             </div>
@@ -129,7 +144,7 @@ class Home extends Component {
             <span>
               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
             </span>
-            <span>Cart</span>
+            <span>Buy</span>
           </div>
           <div>
             <span>
@@ -139,10 +154,7 @@ class Home extends Component {
           </div>
           <div>
             <span>
-              <img
-                src="https://img.icons8.com/pastel-glyph/64/000000/card-wallet--v1.png"
-                alt="walet"
-              />
+             <i class="fas fa-wallet    "></i>
             </span>
             <span>Wallet</span>
           </div>
