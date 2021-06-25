@@ -1,57 +1,60 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 class Home extends Component {
   state = {
     products: [],
     cart: [],
     location: "All",
-    search:""
+    search: "",
   };
   componentDidMount() {
-    const { products } = this.props;
+    const { products, cart } = this.props;
     this.setState({
       ...this.state,
       products,
+      cart,
     });
   }
 
   showProducts() {
-    const { location,search } = this.state;
+    const { location, search } = this.state;
     let filteredProduct = this.state.products;
-   if(location !== "All"){
-    filteredProduct = this.state.products.filter((product)=>{
-        return product.location === location
-    })
-   }else if(search !==""){
-    filteredProduct = filteredProduct.filter((product)=>{
-        return product.name.match(search)
-    })
-   }
-   return filteredProduct ? filteredProduct.map((product,i)=>(
-    <div key={i}>
-        <Link to={"/product/"+product.id}>
-        <img src={product.image} alt=""/>
-        </Link>
-        <p>{product.description}</p>
-        <p>{product.price}</p>
-        <p>{product.name}</p>
-    </div>
-)) : null
-}
+    if (location !== "All") {
+      filteredProduct = this.state.products.filter((product) => {
+        return product.location === location;
+      });
+    } else if (search !== "") {
+      filteredProduct = filteredProduct.filter((product) => {
+        return product.name.match(search);
+      });
+    }
+    return filteredProduct
+      ? filteredProduct.map((product, i) => (
+          <div key={i}>
+            <Link to={"/product/" + product.id}>
+              <img src={product.image} alt="" />
+            </Link>
+            <p>{product.description}</p>
+            <p>{product.price}</p>
+            <p>{product.name}</p>
+          </div>
+        ))
+      : null;
+  }
 
-handleLocationChange (e){
+  handleLocationChange(e) {
     this.setState({
-        ...this.state,
-        location:e.target.value
-    })
-}
-handleSearchChange(e){
+      ...this.state,
+      location: e.target.value,
+    });
+  }
+  handleSearchChange(e) {
     this.setState({
-        ...this.state,
-        search:e.target.value.toUpperCase()
-    })
-}
+      ...this.state,
+      search: e.target.value.toUpperCase(),
+    });
+  }
   render() {
     return (
       <div className="home-wrapper">
@@ -59,9 +62,12 @@ handleSearchChange(e){
           <h1>Trollbasket</h1>
           <div className="filter">
             <span>
-            <i class="fas fa-map-marker-alt"></i>
-              <select name="location" onChange={(e)=>this.handleLocationChange(e)}>
-              <option value="All">All</option>
+              <i class="fas fa-map-marker-alt"></i>
+              <select
+                name="location"
+                onChange={(e) => this.handleLocationChange(e)}
+              >
+                <option value="All">All</option>
                 <option value="Lagos">Lagos</option>
                 <option value="Abuja">Abuja</option>
                 <option value="Kaduna">Kaduna</option>
@@ -69,23 +75,25 @@ handleSearchChange(e){
               </select>
             </span>
             <span>
-            <i class="fas fa-wallet"></i>
+              <i class="fas fa-wallet"></i>
               <p>My Orders</p>
             </span>
-            <span>
-             <span className="cart-counter">
-             <i class="fa fa-cart-plus" aria-hidden="true"></i>
-             <p>{this.state.cart.length}</p>
-             </span>
-              <p>Cart</p>
-            </span>
+            <Link to="/cart">
+              <span>
+                <span className="cart-counter">
+                  <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                  <p>{this.state.cart.length}</p>
+                </span>
+                <p>Cart</p>
+              </span>
+            </Link>
           </div>
           <div className="search">
             <input
               type="text"
               name="search"
               placeholder=" search merchandise"
-              onChange={(e)=>this.handleSearchChange(e)}
+              onChange={(e) => this.handleSearchChange(e)}
             />
             <i class="fa fa-search" aria-hidden="true"></i>
           </div>
@@ -114,7 +122,7 @@ handleSearchChange(e){
             </div>
             <div>
               <span>
-              <i class="fas fa-fire-alt"></i>
+                <i class="fas fa-fire-alt"></i>
               </span>
               <span>Popular Products</span>
             </div>
@@ -126,7 +134,7 @@ handleSearchChange(e){
             </div>
             <div>
               <span>
-              <i class="fas fa-store    "></i>
+                <i class="fas fa-store    "></i>
               </span>
               <span>Shops</span>
             </div>
@@ -154,7 +162,7 @@ handleSearchChange(e){
           </div>
           <div>
             <span>
-             <i class="fas fa-wallet    "></i>
+              <i class="fas fa-wallet    "></i>
             </span>
             <span>Wallet</span>
           </div>
