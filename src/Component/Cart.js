@@ -9,14 +9,46 @@ class Cart extends Component {
 
   componentDidMount() {
     this.props.dispatch(fetchCart());
+    const { cart } = this.props;
+
+    const newCart = cart.map((item) => {
+      return {
+        ...item,
+        itemCount: 1,
+        error:[false]
+      };
+    });
     this.setState({
-      item: this.props.cart,
+      item: newCart,
+    });
+  }
+  removeFromCart(i) {
+    let newCart = this.state.item;
+    if (newCart[i].itemCount > 1) {
+      newCart[i].itemCount -= 1;
+    }
+    this.setState({
+        item:newCart
+    });
+    console.log(newCart);
+  }
+  addToCart(i) {
+    let newCart = this.state.item;
+    // can not have more than 5 of a particular item
+    if (newCart[i].itemCount < 5) {
+      newCart[i].itemCount += 1;
+    }else{
+        let error = [true,"can not have more than 5 of a particular item"]
+        newCart[i].error = error
+    }
+    this.setState({
+      item:newCart
     });
   }
   showItem() {
     const { item } = this.state;
     return item ? (
-      item.map((item, i) => (
+      item.map((item, idx) => (
         <div className="item" key={item.id}>
           <div className="top">
             <img src={item.image} alt="" />
@@ -26,13 +58,17 @@ class Cart extends Component {
             </span>
           </div>
           <div className="bottom">
-            <div onClick={() => this.deleteItem(i)}>
+            <div onClick={() => this.deleteItem(idx)}>
               <i class="fa fa-trash" aria-hidden="true"></i> Delete
             </div>
             <div>
-              <span className="qty">-</span>
-              <span>{1}</span>
-              <span className="qty">+</span>
+              <span className="qty" onClick={() => this.removeFromCart(idx)}>
+                -
+              </span>
+              <span>{item.itemCount}</span>
+              <span className="qty" onClick={() => this.addToCart(idx)}>
+                +
+              </span>
             </div>
           </div>
         </div>
@@ -69,8 +105,8 @@ class Cart extends Component {
       return total;
     }
     item.map((item) => {
-      total += parseInt(item.price.replace(",", ""));
-      return total
+      total += parseInt(item.price.replace(",", "")) * item.itemCount
+      return total;
     });
     const formatter = new Intl.NumberFormat("en-US", {
       style: "currency",

@@ -54,7 +54,7 @@ class Product extends Component {
             <Link to="/cart">
               <span className="cart-counter">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                <p>{this.state.cart.length}</p>
+                <p>{this.state.cart.length }</p>
               </span>
             </Link>
           </div>
