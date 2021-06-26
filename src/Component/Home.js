@@ -105,7 +105,7 @@ class Home extends Component {
               <span>About Us</span>
             </div>
             <div>
-              <span>Having any issues with your order ?</span>
+              <span>Having any <span style={{color:"#8fab25"}}>issues</span> with your order ?</span>
               <span>Contact Us</span>
             </div>
             <div>

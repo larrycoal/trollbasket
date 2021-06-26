@@ -27,6 +27,7 @@ Home
     height: 100%;
     width: 100%;
     padding: .5rem;
+    display: grid;
 }
 .header-wrapper{
     display: flex;
@@ -127,7 +128,6 @@ Home
 .body-wrapper .carousel div{
   min-width: 90vw;
   border-radius: 5px;
-  height: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -146,7 +146,9 @@ Home
 }
 .body-wrapper .carousel div span:nth-child(1){
     color: #fff;
-    line-height: 1.2rem;
+    line-height: 1.7rem;
+    width: 15rem;
+    font-size: 1.3rem;
 }
 .body-wrapper .carousel div span:nth-child(2){
     padding: 1rem 2rem;
@@ -161,6 +163,8 @@ Home
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
+    width: 90vw;
+    margin: 0 auto;
 }
 .body-wrapper .featured div{
     display: flex;
@@ -169,7 +173,6 @@ Home
     align-items: center;
     text-align: center;
     gap: .5rem;
-    padding: 1rem;
 }
 .featured div:nth-child(1) span:nth-child(1){
     background-color:#227EFF
@@ -186,7 +189,7 @@ Home
 .featured div span:nth-child(1){
     border-radius: 10px;
     height: 5rem;
-    width: 6rem;
+    width: 5rem;
     display: flex;
     align-items: center;
     justify-content: center;
