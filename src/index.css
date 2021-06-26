@@ -20,6 +20,12 @@ a{
     text-decoration: none;
     color: #212C3D;
 }
+.error{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: red;
+}
 /* ============================
 Home
 =============================== */

@@ -26,6 +26,7 @@ class Cart extends Component {
     let newCart = this.state.item;
     if (newCart[i].itemCount > 1) {
       newCart[i].itemCount -= 1;
+      newCart[i].error=[false]
     }
     this.setState({
         item:newCart
@@ -37,6 +38,7 @@ class Cart extends Component {
     // can not have more than 5 of a particular item
     if (newCart[i].itemCount < 5) {
       newCart[i].itemCount += 1;
+      newCart[i].error=[false]
     }else{
         let error = [true,"can not have more than 5 of a particular item"]
         newCart[i].error = error
@@ -71,6 +73,9 @@ class Cart extends Component {
               </span>
             </div>
           </div>
+          {
+              item.error[0]?<span className="error">{item.error[1]}</span> : null
+          }
         </div>
       ))
     ) : (
