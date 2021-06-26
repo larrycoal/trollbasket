@@ -37,7 +37,7 @@ class Home extends Component {
             </Link>
             <p>{product.description}</p>
             <p>{product.price}</p>
-            <p>{product.name}</p>
+            <p className="product-name">{product.name}</p>
           </div>
         ))
       : null;
@@ -52,7 +52,7 @@ class Home extends Component {
   handleSearchChange(e) {
     this.setState({
       ...this.state,
-      search: e.target.value.toUpperCase(),
+      search: e.target.value,
     });
   }
   render() {

@@ -237,6 +237,9 @@ Home
     color: black;
     font-size: 1rem;
 }
+.products .product-name{
+    text-transform: capitalize;
+}
 .toolbar-wrapper {
     display: flex;
     justify-content: space-around;

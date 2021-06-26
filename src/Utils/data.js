@@ -1,7 +1,7 @@
 export const product =[
     { 
         id: "1ads421egjdsc",
-        name: "NIKE", 
+        name: "nike", 
         description: "Get comfy and comfortable with the new 2019 designer sneaker for all your events", 
         image: "https://res.cloudinary.com/dbdrtuscd/image/upload/v1624535985/sneakers_xmukzp.png", 
         price: "45,000", 
@@ -10,7 +10,7 @@ export const product =[
     },
     { 
         id: "2ads421egjdsc",
-        name: "SELFIE STICK", 
+        name: "selfie stick", 
         description: "Get easy to use designer selfie stick", 
         image: "https://res.cloudinary.com/dbdrtuscd/image/upload/v1624535985/hand_u51x9i.png", 
         price: "5,000", 
@@ -19,7 +19,7 @@ export const product =[
     },
     { 
         id: "3ads421egjdsc",
-        name: "COCACOLA", 
+        name: "cocacola", 
         description: "Get your refreshing bottle of cocacola,quench your taste", 
         image: "https://res.cloudinary.com/dbdrtuscd/image/upload/v1624535985/cocacola_qvwok5.png", 
         price: "2,000", 
@@ -28,7 +28,7 @@ export const product =[
     },
     { 
         id: "4ads421egjdsc",
-        name: "AIR FRESHNER", 
+        name: "air freshner", 
         description: "Get nice smelling air freshner for your homes and cars", 
         image: "https://res.cloudinary.com/dbdrtuscd/image/upload/v1624535986/box_h5pkv5.png", 
         price: "3,000", 
@@ -37,7 +37,7 @@ export const product =[
     },
     { 
         id: "5ads421egjdsc",
-        name: "LUNCH BAG", 
+        name: "lunch bag", 
         description: "Get easy to use lunch bag to keep your food warm", 
         image: "https://res.cloudinary.com/dbdrtuscd/image/upload/v1624535986/food_bbrkht.png", 
         price: "45,000", 
@@ -46,7 +46,7 @@ export const product =[
     },
     { 
         id: "6ads421egjdsc",
-        name: "SEEDS", 
+        name: "seeds", 
         description: "Get beautiful, treated, hybrid flower seeds", 
         image: "https://res.cloudinary.com/dbdrtuscd/image/upload/v1624535986/bag_m8wz3k.png", 
         price: "45,000", 
@@ -55,16 +55,16 @@ export const product =[
     },
     { 
         id: "7ads421egjdsc",
-        name: "NIKE Huararche 2019", 
-        description: "Get comfy and comfortable with the new 2019 designer sneaker for all your events", 
-        image: "https://res.cloudinary.com/dbdrtuscd/image/upload/v1624535986/bag_m8wz3k.png", 
+        name: "umbrella", 
+        description: "Get comfy and comfortable in rainy days with good umbrella", 
+        image: "https://res.cloudinary.com/dbdrtuscd/image/upload/v1624535985/cocacola_qvwok5.png",
         price: "45,000", 
         location: "Kaduna", 
         stock: 5, 
     },
     { 
         id: "8ads421egjdsc",
-        name: "NIKE Huararche 2019", 
+        name: "nike", 
         description: "Get comfy and comfortable with the new 2019 designer sneaker for all your events", 
         image: "https://res.cloudinary.com/dbdrtuscd/image/upload/v1624535986/bag_m8wz3k.png", 
         price: "45,000", 
@@ -73,7 +73,7 @@ export const product =[
     },
     { 
         id: "9ads421egjdsc",
-        name: "NIKE Huararche 2019", 
+        name: "nike", 
         description: "Get comfy and comfortable with the new 2019 designer sneaker for all your events", 
         image: "https://res.cloudinary.com/dbdrtuscd/image/upload/v1624535986/bag_m8wz3k.png", 
         price: "45,000", 
@@ -82,7 +82,7 @@ export const product =[
     },
     { 
         id: "10ads421egjdsc",
-        name: "NIKE Huararche 2019", 
+        name: "nike", 
         description: "Get comfy and comfortable with the new 2019 designer sneaker for all your events", 
         image: "https://res.cloudinary.com/dbdrtuscd/image/upload/v1624535986/bag_m8wz3k.png", 
         price: "45,000", 
@@ -93,17 +93,17 @@ export const product =[
         id: "11ads421egjdsc",
         name: "bag", 
         description: "Get comfy and comfortable with the new 2019 designer sneaker for all your events", 
-        image: "https://res.cloudinary.com/dbdrtuscd/image/upload/v1624535986/bag_m8wz3k.png", 
+        image: "https://res.cloudinary.com/dbdrtuscd/image/upload/v1624535985/cocacola_qvwok5.png", 
         price: "45,000", 
         location: "Kaduna", 
         stock: 5, 
     },
     { 
         id: "12ads421egjdsc",
-        name: "NIKE Huararche 2019", 
+        name: "nike", 
         description: "Get comfy and comfortable with the new 2019 designer sneaker for all your events", 
         image: "https://res.cloudinary.com/dbdrtuscd/image/upload/v1624535986/bag_m8wz3k.png", 
-        price: "45,000", 
+        price: "N45,000", 
         location: "Rivers", 
         stock: 5, 
     },
